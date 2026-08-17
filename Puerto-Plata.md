@@ -1,8 +1,5 @@
 # NetSecure Solutions — Sede Puerto Plata
 
-> Proyecto: Conmutación y Enrutamiento — ITLA — PNETLAB
-> Empresa: NetSecure Solutions
-
 ## Rol en la topología
 
 Sede regional conectada al [ISP](./ISP.md) mediante un enlace WAN dedicado y
