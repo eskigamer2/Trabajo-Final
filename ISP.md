@@ -1,7 +1,5 @@
 # NetSecure Solutions — ISP / Nube
 
-> Empresa: NetSecure Solutions
-
 ## Rol en la topología
 
 El router **ISP-NUBE** Concentra los 6 enlaces
