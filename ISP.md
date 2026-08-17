@@ -17,7 +17,7 @@ dedicada (`1.0.0.24/29`).
 | San Francisco de Macorís | `1.0.0.20/30` |
 | **NAT estático — Web** | `1.0.0.24/29` (`1.0.0.25` usable) |
 
-> El servidor Web/Correo público vive físicamente en el datacenter de
+> El servidor Web público vive físicamente en el datacenter de
 > **Santiago** (ver [Santiago.md](./Santiago.md)); aquí en el ISP solo se
 > documenta su salida/NAT hacia Internet.
 
