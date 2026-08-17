@@ -4,7 +4,7 @@
 
 El router **ISP-NUBE** Concentra los 6 enlaces
 públicos hacia cada sede (`1.0.0.0/24`), realiza NAT overload hacia "internet"
- y expone el **servidor Web/Correo** mediante una subred pública
+ y expone el **servidor Web** mediante una subred pública
 dedicada (`1.0.0.24/29`).
 
 | Enlace | Red pública |
