@@ -718,10 +718,9 @@ write memory
 <details>
 <summary><strong>Configuracion de DataCenter</strong></summary>
 
-```text
 
 ### 1. Configuración de Red (IP Estática)
-
+```text
 El servidor (`10.1.0.34`) reside en la **VLAN 220** (Gateway `.33`).
 
 ```bash
@@ -764,7 +763,7 @@ done
 
 ---
 
-### 3. Servidor DHCP (isc-dhcp-server) - ¡Actualizado!
+### 3. Servidor DHCP (isc-dhcp-server)
 
 Repartirá direcciones a las 4 VLANs de Santiago, incluyendo la de Management.
 
