@@ -1,3 +1,33 @@
+# NetSecure Solutions — ISP / Nube
+
+> Proyecto: Conmutación y Enrutamiento — ITLA — PNETLAB
+> Empresa: NetSecure Solutions
+
+## Rol en la topología
+
+El router **ISP-NUBE** simula el proveedor de Internet. Concentra los 6 enlaces
+públicos hacia cada sede (`1.0.0.0/24`), realiza NAT overload hacia "internet"
+(Altice Cloud) y expone el **servidor Web/Correo** mediante una subred pública
+dedicada (`1.0.0.24/29`).
+
+| Enlace | Red pública |
+|---|---|
+| Santo Domingo (Hub) | `1.0.0.0/30` |
+| Santiago | `1.0.0.4/30` |
+| La Romana | `1.0.0.8/30` |
+| Puerto Plata | `1.0.0.12/30` |
+| Barahona | `1.0.0.16/30` |
+| San Francisco de Macorís | `1.0.0.20/30` |
+| **NAT estático — Web/Correo** | `1.0.0.24/29` (`1.0.0.25` usable) |
+
+> El servidor Web/Correo público vive físicamente en el datacenter de
+> **Santiago** (ver [Santiago.md](./Santiago.md)); aquí en el ISP solo se
+> documenta su salida/NAT hacia Internet.
+
+---
+
+## ISP-NUBE (Router)
+
 ```text
 enable
 configure terminal
@@ -153,6 +183,4 @@ no ip http server
 no ip http secure-server
 
 end
-write memory
-```
-
+write memory```
