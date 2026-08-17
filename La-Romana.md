@@ -1,7 +1,5 @@
 # NetSecure Solutions — Sede La Romana
 
-> Proyecto: Conmutación y Enrutamiento — ITLA — PNETLAB
-> Empresa: NetSecure Solutions
 
 ## Rol en la topología
 
