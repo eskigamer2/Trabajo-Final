@@ -24,7 +24,9 @@ servidor del datacenter en [Santiago](./Santiago.md) (`10.1.0.34`).
 - `SWD-ROM-1` — Switch de distribución (trunk + EtherChannel L2 hacia el switch de acceso)
 - `SWA-ROM-1` — Switch de acceso (puertos de usuario, port-security, DHCP snooping, DAI)
 
-# Configuraciones
+---
+
+## Configuraciones
 
 <details>
 <summary><strong>R-ROM (Router)</strong></summary>
@@ -303,7 +305,8 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
 </details>
 
@@ -467,7 +470,8 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
 </details>
 
@@ -720,6 +724,7 @@ interface range Ethernet0/1-3
 exit
 
 end
-write memory```
+write memory
+```
 
 </details>
