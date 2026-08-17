@@ -1,13 +1,12 @@
 # NetSecure Solutions — ISP / Nube
 
-> Proyecto: Conmutación y Enrutamiento — ITLA — PNETLAB
 > Empresa: NetSecure Solutions
 
 ## Rol en la topología
 
-El router **ISP-NUBE** simula el proveedor de Internet. Concentra los 6 enlaces
+El router **ISP-NUBE** Concentra los 6 enlaces
 públicos hacia cada sede (`1.0.0.0/24`), realiza NAT overload hacia "internet"
-(Altice Cloud) y expone el **servidor Web/Correo** mediante una subred pública
+ y expone el **servidor Web/Correo** mediante una subred pública
 dedicada (`1.0.0.24/29`).
 
 | Enlace | Red pública |
