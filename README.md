@@ -198,6 +198,4 @@ Crear Mínimo 3 Departamentos:
 
 ---
 
-```
-</details>
 
