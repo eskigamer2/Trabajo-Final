@@ -1,7 +1,7 @@
 # 🏢 Proyecto Final - NetSecure Solutions (CECOMPE)
 
 [Topología de Red]<img width="1903" height="1266" alt="Topologia" src="https://github.com/user-attachments/assets/578db4ec-9cbf-42e9-a70c-6a5e539112c4" />
-g)
+
 
 ## 📖 Introducción
 NetSecure Solutions se dedicará a la venta o prestación de servicios en general, haciendo énfasis en el uso de Internet, Centros de atención al cliente (call centers) y las ventas directas. Esta organización de capital dominicano tendrá presencia a nivel nacional con sucursales en Santiago, La Romana, Puerto Plata, Barahona y su sede principal en Santo Domingo.
