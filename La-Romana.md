@@ -1,6 +1,5 @@
 # NetSecure Solutions — Sede La Romana
 
-
 ## Rol en la topología
 
 Sede regional conectada al [ISP](./ISP.md) mediante un enlace WAN dedicado y
@@ -25,9 +24,10 @@ servidor del datacenter en [Santiago](./Santiago.md) (`10.1.0.34`).
 - `SWD-ROM-1` — Switch de distribución (trunk + EtherChannel L2 hacia el switch de acceso)
 - `SWA-ROM-1` — Switch de acceso (puertos de usuario, port-security, DHCP snooping, DAI)
 
----
+# Configuraciones
 
-## R-ROM (Router)
+<details>
+<summary><strong>R-ROM (Router)</strong></summary>
 
 ```text
 enable
@@ -305,7 +305,10 @@ no ip http secure-server
 end
 write memory```
 
-## SWD-ROM-1 (Switch de Distribución)
+</details>
+
+<details>
+<summary><strong>SWD-ROM-1 (Switch de Distribución)</strong></summary>
 
 ```text
 enable
@@ -466,7 +469,10 @@ no ip http secure-server
 end
 write memory```
 
-## SWA-ROM-1 (Switch de Acceso)
+</details>
+
+<details>
+<summary><strong>SWA-ROM-1 (Switch de Acceso)</strong></summary>
 
 ```text
 enable
@@ -715,3 +721,5 @@ exit
 
 end
 write memory```
+
+</details>
