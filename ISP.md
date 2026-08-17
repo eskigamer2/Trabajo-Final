@@ -184,6 +184,7 @@ no ip http secure-server
 end
 write memory
 ```
+</details>
 <details>
 <summary><strong>Configuracion del Servidor Web</strong></summary>
 
