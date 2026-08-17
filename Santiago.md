@@ -38,7 +38,10 @@ demás sedes, donde el switch de distribución es solo Capa 2).
 
 ---
 
-## R-ST (Router)
+## Configuraciones
+
+<details>
+<summary><strong>R-ST (Router)</strong></summary>
 
 ```text
 enable
@@ -232,9 +235,13 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
-## SWMD-ST-1 (Switch de Distribución / Núcleo)
+</details>
+
+<details>
+<summary><strong>SWMD-ST-1 (Switch de Distribución / Núcleo)</strong></summary>
 
 ```text
 enable
@@ -449,9 +456,13 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
-## SWA-ST-1 (Switch de Acceso)
+</details>
+
+<details>
+<summary><strong>SWA-ST-1 (Switch de Acceso)</strong></summary>
 
 ```text
 enable
@@ -700,4 +711,8 @@ interface range Ethernet0/1-3
 exit
 
 end
-write memory```
+write memory
+```
+
+</details>
+
