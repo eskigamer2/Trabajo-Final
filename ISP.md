@@ -23,10 +23,12 @@ dedicada (`1.0.0.24/29`).
 
 ---
 
-## ISP-NUBE (Router)
 
-```text
-enable
+
+<details>
+<summary><strong>ISP-Nube (Router)</strong></summary>
+
+```enable
 configure terminal
 
 !
@@ -180,4 +182,69 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
+<details>
+<summary><strong>Configuracion del Servidor Web</strong></summary>
+
+```text
+### Servidor Web (Con Docker)
+
+Encargado de alojar la página web de `netsecure.com.do` en el servidor `1.0.0.26`.
+
+Editamos Netplan:
+```bash
+sudo nano /etc/netplan/01-network-manager-all.yaml
+```
+
+Editar el archivo para que quede de esta manera:
+```YAML
+network:
+  version: 2
+  renderer: NetworkManager
+
+  ethernets:
+    ens3:
+      dhcp4: no
+      addresses:
+        - 1.0.0.26/29
+      routes:
+        - to: default
+          via: 1.0.0.25
+      nameservers:
+        addresses:
+          - 10.1.0.34
+        search:
+          - netsecure.com.do
+```
+
+Aplicacion del netplan:
+```bash
+sudo netplan generate
+sudo netplan apply
+```
+
+Fase de instalacion:
+```bash
+sudo apt update
+sudo apt install -y docker.io unzip curl
+sudo systemctl enable --now docker
+```
+
+Crear la carpeta del proyecto:
+```bash
+sudo mkdir -p /opt/netsecure-web
+cd /opt/netsecure-web
+```
+
+Descomprimir la página:
+```bash
+sudo unzip netsecure-web-linux.zip -d /opt/netsecure-web
+cd /opt/netsecure-web
+```
+
+Levantar el servidor web:
+```bash
+sudo docker compose up -d --build
+```
+</details>
