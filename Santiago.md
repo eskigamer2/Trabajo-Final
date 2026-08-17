@@ -715,4 +715,270 @@ write memory
 ```
 
 </details>
+<details>
+<summary><strong>Configuracion de DataCenter</strong></summary>
 
+```text
+
+### 1. Configuración de Red (IP Estática)
+
+El servidor (`10.1.0.34`) reside en la **VLAN 220** (Gateway `.33`).
+
+```bash
+sudo nano /etc/netplan/01-network-manager-all.yaml
+
+```
+
+```yaml
+network:
+  version: 2
+  ethernets:
+    ens3:
+      addresses: [10.1.0.34/27]
+      routes:
+        - to: default
+          via: 10.1.0.33
+      nameservers:
+        addresses: [10.1.0.34, 8.8.8.8]
+
+```
+
+```bash
+sudo netplan apply
+
+```
+
+---
+
+### 2. Creación de Usuarios (Sistema, FTP y Correo)
+
+Estos comandos crearán a los 6 miembros de la empresa con la estructura de contraseñas estandarizada (Ej: `Keury2026*`, `Isamar2026*`).
+
+```bash
+for u in isamar keury sahir lizbeth starling josue; do
+  sudo adduser --disabled-password --gecos "" $u
+  echo "$u:${u^}2026*" | sudo chpasswd
+done
+
+```
+
+---
+
+### 3. Servidor DHCP (isc-dhcp-server) - ¡Actualizado!
+
+Repartirá direcciones a las 4 VLANs de Santiago, incluyendo la de Management.
+
+```bash
+sudo apt install -y isc-dhcp-server
+sudo nano /etc/default/isc-dhcp-server
+
+```
+
+*Modifica esta línea para indicar tu interfaz:*
+`INTERFACESv4="ens3"`
+
+```bash
+sudo nano /etc/dhcp/dhcpd.conf
+
+```
+
+```text
+authoritative;
+default-lease-time 604800;
+max-lease-time 604800;
+
+# VLAN 210 - VENTAS SANTIAGO (/27)
+subnet 10.1.0.0 netmask 255.255.255.224 {
+  range 10.1.0.2 10.1.0.30;
+  option routers 10.1.0.1;
+  option domain-name-servers 10.1.0.34;
+  option domain-name "netsecure.com.do";
+}
+
+# VLAN 220 - DATACENTER SANTIAGO (/27)
+subnet 10.1.0.32 netmask 255.255.255.224 {
+  range 10.1.0.35 10.1.0.62;
+  option routers 10.1.0.33;
+  option domain-name-servers 10.1.0.34;
+  option domain-name "netsecure.com.do";
+}
+
+# VLAN 230 - ADMIN SANTIAGO (/28)
+subnet 10.1.0.64 netmask 255.255.255.240 {
+  range 10.1.0.66 10.1.0.78;
+  option routers 10.1.0.65;
+  option domain-name-servers 10.1.0.34;
+  option domain-name "netsecure.com.do";
+}
+
+# VLAN 299 - MANAGEMENT SANTIAGO (/28)
+subnet 10.1.1.0 netmask 255.255.255.240 {
+  range 10.1.1.4 10.1.1.14;
+  option routers 10.1.1.1;
+  option domain-name-servers 10.1.0.34;
+  option domain-name "netsecure.com.do";
+}
+
+```
+
+```bash
+sudo systemctl restart isc-dhcp-server
+sudo systemctl enable isc-dhcp-server
+
+```
+
+---
+
+### 4. Servidor DNS (Bind9)
+
+Encargado de la resolución interna de `netsecure.com.do`.
+
+```bash
+sudo apt install -y bind9 bind9utils bind9-doc
+sudo nano /etc/bind/named.conf.local
+
+```
+
+```text
+zone "netsecure.com.do" {
+    type master;
+    file "/etc/bind/db.netsecure.com.do";
+};
+
+```
+
+```bash
+sudo cp /etc/bind/db.local /etc/bind/db.netsecure.com.do
+sudo nano /etc/bind/db.netsecure.com.do
+
+```
+
+```text
+$TTL    604800
+@   IN  SOA ns1.netsecure.com.do. admin.netsecure.com.do. (
+              4   ; Serial
+         604800   ; Refresh
+          86400   ; Retry
+        2419200   ; Expire
+         604800 ) ; Negative Cache TTL
+;
+@       IN  NS      ns1.netsecure.com.do.
+ns1     IN  A       10.1.0.34
+www     IN  A       1.0.0.26
+mail    IN  A       10.1.0.34
+@       IN  MX  10  mail.netsecure.com.do.
+srv     IN  A       10.1.0.34
+@       IN  A       1.0.0.26
+
+```
+
+```bash
+sudo named-checkzone netsecure.com.do /etc/bind/db.netsecure.com.do
+sudo systemctl restart bind9
+sudo systemctl enable --now named
+
+```
+
+---
+
+### 5. Servidor de Archivos FTP (vsftpd)
+
+```bash
+sudo apt install -y vsftpd
+sudo nano /etc/vsftpd.conf
+
+```
+
+*Asegúrate de agregar/descomentar estas líneas al final del archivo:*
+
+```text
+listen=YES
+listen_ipv6=NO
+anonymous_enable=NO
+local_enable=YES
+write_enable=YES
+chroot_local_user=YES
+allow_writeable_chroot=YES
+pasv_enable=YES
+pasv_min_port=40000
+pasv_max_port=40100
+
+```
+
+```bash
+sudo systemctl restart vsftpd
+sudo systemctl enable vsftpd
+
+```
+
+---
+
+### 6. Servidor de Correo (Postfix + Dovecot)
+
+```bash
+sudo apt install -y postfix dovecot-imapd dovecot-pop3d mailutils
+
+```
+
+*(Durante la instalación, selecciona **"Sitio de Internet"** y escribe `netsecure.com.do`)*
+
+```bash
+sudo postconf -e "myhostname = mail.netsecure.com.do"
+sudo postconf -e "mydomain = netsecure.com.do"
+sudo postconf -e "myorigin = /etc/mailname"
+sudo postconf -e "inet_interfaces = all"
+sudo postconf -e "mydestination = \$myhostname, netsecure.com.do, localhost"
+echo "netsecure.com.do" | sudo tee /etc/mailname
+
+# Configuración de Dovecot para usar buzones tipo Maildir
+sudo sed -i 's/#mail_location = .*/mail_location = maildir:~\/Maildir/' /etc/dovecot/conf.d/10-mail.conf
+
+sudo systemctl restart postfix dovecot
+sudo systemctl enable postfix dovecot
+
+```
+
+---
+
+### 7. Servidor RADIUS (FreeRADIUS)
+
+Centraliza la autenticación (AAA) de todos los Routers y Switches Cisco de la topología.
+
+```bash
+sudo apt install -y freeradius freeradius-utils
+sudo nano /etc/freeradius/3.0/clients.conf
+
+```
+
+*Agrega al final para permitir consultas desde toda tu red interna:*
+
+```text
+client netsecure-red {
+    ipaddr     = 10.0.0.0/9
+    secret     = Netsecure-EMP1
+}
+
+```
+
+```bash
+sudo nano /etc/freeradius/3.0/users
+
+```
+
+*Agrega al principio del archivo (antes de cualquier otra configuración):*
+
+```text
+isamar    Cleartext-Password := "Isamar2026*"
+keury     Cleartext-Password := "Keury2026*"
+sahir     Cleartext-Password := "Sahir2026*"
+lizbeth   Cleartext-Password := "Lizbeth2026*"
+starling  Cleartext-Password := "Starling2026*"
+josue     Cleartext-Password := "Josue2026*"
+
+```
+
+```bash
+sudo systemctl restart freeradius
+sudo systemctl enable freeradius
+
+```
