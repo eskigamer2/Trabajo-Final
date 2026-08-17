@@ -1,6 +1,7 @@
 # 🏢 Proyecto Final - NetSecure Solutions (CECOMPE)
 
-[Topología de Red]<img width="1903" height="1266" alt="Topologia" src="https://github.com/user-attachments/assets/578db4ec-9cbf-42e9-a70c-6a5e539112c4" />
+[Topología de Red]<img width="1600" height="1098" alt="WhatsApp Image 2026-08-16 at 10 21 25 PM" src="https://github.com/user-attachments/assets/4e7f5751-24c1-458b-89c6-d9f6b1cf3ce5" />
+
 
 
 ## 📖 Introducción
