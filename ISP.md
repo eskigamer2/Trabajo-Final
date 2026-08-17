@@ -156,4 +156,3 @@ end
 write memory
 ```
 
-<details>
