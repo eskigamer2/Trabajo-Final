@@ -195,7 +195,6 @@ Crear Mínimo 3 Departamentos:
 | 620 | OPERACIONES-SFM | Departamento 2 | 35 | `10.5.0.128/26` | `10.5.0.129` | `10.5.0.190` | `10.5.0.191` |
 | 630 | LEGAL-CUMPLIMIENTO-SFM | Departamento 3 | 10 | `10.5.0.192/28` | `10.5.0.193` | `10.5.0.206` | `10.5.0.207` |
 | 699 | MGMT-SFM | Gestión/OOB | — | `10.5.1.0/28` | `10.5.1.1` | `10.5.1.14` | `10.5.1.15` |
-</details>
 
 ---
 
