@@ -23,10 +23,13 @@ servidor del datacenter en [Santiago](./Santiago.md) (`10.1.0.34`).
 - `R-PPL` — Router de sede (WAN al ISP, subinterfaces 802.1Q, DHCP, NAT, DMVPN spoke)
 - `SWD-PPL-1` — Switch de distribución (trunk + EtherChannel L2 hacia el switch de acceso)
 - `SWA-PPL-1` — Switch de acceso (puertos de usuario, port-security, DHCP snooping, DAI)
-
+- 
 ---
 
-## R-PPL (Router)
+## Configuraciones
+
+<details>
+<summary><strong>R-PPL (Router)</strong></summary>
 
 ```text
 enable
@@ -301,9 +304,13 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
-## SWD-PPL-1 (Switch de Distribución)
+</details>
+
+<details>
+<summary><strong>SWD-PPL-1 (Switch de Distribución)</strong></summary>
 
 ```text
 enable
@@ -461,9 +468,13 @@ no ip http server
 no ip http secure-server
 
 end
-write memory```
+write memory
+```
 
-## SWA-PPL-1 (Switch de Acceso)
+</details>
+
+<details>
+<summary><strong>SWA-PPL-1 (Switch de Acceso)</strong></summary>
 
 ```text
 enable
@@ -713,3 +724,5 @@ exit
 end
 write memory
 ```
+
+</details>
