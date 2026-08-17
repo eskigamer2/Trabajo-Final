@@ -1,8 +1,5 @@
 # NetSecure Solutions — Sede Santiago
 
-> Proyecto: Conmutación y Enrutamiento — ITLA — PNETLAB
-> Empresa: NetSecure Solutions
-
 ## Rol en la topología
 
 Santiago es la **sede secundaria de mayor peso**: aquí vive el datacenter
