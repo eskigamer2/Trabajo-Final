@@ -15,7 +15,7 @@ dedicada (`1.0.0.24/29`).
 | Puerto Plata | `1.0.0.12/30` |
 | Barahona | `1.0.0.16/30` |
 | San Francisco de Macorís | `1.0.0.20/30` |
-| **NAT estático — Web/Correo** | `1.0.0.24/29` (`1.0.0.25` usable) |
+| **NAT estático — Web** | `1.0.0.24/29` (`1.0.0.25` usable) |
 
 > El servidor Web/Correo público vive físicamente en el datacenter de
 > **Santiago** (ver [Santiago.md](./Santiago.md)); aquí en el ISP solo se
