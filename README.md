@@ -41,6 +41,7 @@ El proyecto presenta un escenario completo para la implementación, sin embargo 
 - Linux-SFM: Ubuntu Mate
 - Resto de PCs: VPCs
 </details>
+
 ---
 
 ## 📍 Información Específica de las Sedes
