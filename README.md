@@ -26,7 +26,21 @@ El proyecto presenta un escenario completo para la implementación, sin embargo 
 - Implementar DHCP por Sede **(En la Sede de Santiago usar un servidor del datacenter para que sea el server DHCP de esa Sede)**
 - Implementar VPN dinámica con IPSec (DMVPN) para la comunicación entre las sucursales y la sede Principal
 - Implementar ACL según el criterio del equipo
+<details>
+<summary><b>Sistemas Operativos de los Dispositivos</b></summary>
 
+- Routers: i86bi_linux-adventerprisek9-ms.154-1.T_AntiGNS3.bin
+- Switches: i86bi_Linux-Ls-Adventerprisek9-ms.SSAhigh_iron_20190423.bin
+- Data Center: Ubuntu Mate
+- WEBSERVER: Ubuntu Mate
+- Linux-SD: Ubuntu Mate
+- Linux-ST: Ubuntu Mate
+- Linux-PPL: Ubuntu Mate
+- Linux-ROM: Ubuntu Mate
+- Linux-BAR: Ubuntu Mate
+- Linux-SFM: Ubuntu Mate
+- Resto de PCs: VPCs
+</details>
 ---
 
 ## 📍 Información Específica de las Sedes
@@ -200,18 +214,3 @@ Crear Mínimo 3 Departamentos:
 ---
 </details>
 
-<details>
-<summary><b>Sistemas Operativos de los Dispositivos</b></summary>
-
-- Routers: i86bi_linux-adventerprisek9-ms.154-1.T_AntiGNS3.bin
-- Switches: i86bi_Linux-Ls-Adventerprisek9-ms.SSAhigh_iron_20190423.bin
-- Data Center: Ubuntu Mate
-- WEBSERVER: Ubuntu Mate
-- Linux-SD: Ubuntu Mate
-- Linux-ST: Ubuntu Mate
-- Linux-PPL: Ubuntu Mate
-- Linux-ROM: Ubuntu Mate
-- Linux-BAR: Ubuntu Mate
-- Linux-SFM: Ubuntu Mate
-- Resto de PCs: VPCs
-</details>
