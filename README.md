@@ -200,7 +200,8 @@ Crear Mínimo 3 Departamentos:
 ---
 </details>
 
-### **Sistemas Operativos de los Dispositivos**
+<details>
+<summary><b>Sistemas Operativos de los Dispositivos</b></summary>
 
 - Routers: i86bi_linux-adventerprisek9-ms.154-1.T_AntiGNS3.bin
 - Switches: i86bi_Linux-Ls-Adventerprisek9-ms.SSAhigh_iron_20190423.bin
@@ -213,3 +214,4 @@ Crear Mínimo 3 Departamentos:
 - Linux-BAR: Ubuntu Mate
 - Linux-SFM: Ubuntu Mate
 - Resto de PCs: VPCs
+</details>
