@@ -718,6 +718,9 @@ write memory
 <details>
 <summary><strong>Configuracion de DataCenter</strong></summary>
 
+### 0. Disco de Servidores
+
+https://drive.google.com/drive/folders/1KWONu9qGPgur1btCuTguQ5ALZNX8yjlU?usp=sharing
 
 ### 1. Configuración de Red (IP Estática)
 ```text
