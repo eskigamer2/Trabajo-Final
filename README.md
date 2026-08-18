@@ -199,4 +199,15 @@ Crear Mínimo 3 Departamentos:
 
 ---
 
-
+### **Imagenes**
+- Routers: i86bi_linux-adventerprisek9-ms.154-1.T_AntiGNS3.bin
+- Switches: i86bi_Linux-Ls-Adventerprisek9-ms.SSAhigh_iron_20190423.bin
+- Data Center: Ubuntu Mate
+- WEBSERVER: Ubuntu Mate
+- Linux-SD: Ubuntu Mate
+- Linux-ST: Ubuntu Mate
+- Linux-PPL: Ubuntu Mate
+- Linux-ROM: Ubuntu Mate
+- Linux-BAR: Ubuntu Mate
+- Linux-SFM: Ubuntu Mate
+- Resto de PCs: VPCs
