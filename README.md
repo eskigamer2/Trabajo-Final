@@ -198,8 +198,10 @@ Crear Mínimo 3 Departamentos:
 | 699 | MGMT-SFM | Gestión/OOB | — | `10.5.1.0/28` | `10.5.1.1` | `10.5.1.14` | `10.5.1.15` |
 
 ---
+</details>
 
-### **Imagenes**
+### **Sistemas Operativos de los Dispositivos**
+
 - Routers: i86bi_linux-adventerprisek9-ms.154-1.T_AntiGNS3.bin
 - Switches: i86bi_Linux-Ls-Adventerprisek9-ms.SSAhigh_iron_20190423.bin
 - Data Center: Ubuntu Mate
