@@ -2,7 +2,7 @@
 
 [Topología de Red]<img width="1600" height="1098" alt="WhatsApp Image 2026-08-16 at 10 21 25 PM" src="https://github.com/user-attachments/assets/4e7f5751-24c1-458b-89c6-d9f6b1cf3ce5" />
 
-
+Link de Descarga: https://drive.google.com/drive/folders/10GHDxVXyJT6H5xHDHUubbWQxVMPrX9Ac?usp=sharing
 
 ## 📖 Introducción
 NetSecure Solutions se dedicará a la venta o prestación de servicios en general, haciendo énfasis en el uso de Internet, Centros de atención al cliente (call centers) y las ventas directas. Esta organización de capital dominicano tendrá presencia a nivel nacional con sucursales en Santiago, La Romana, Puerto Plata, Barahona y su sede principal en Santo Domingo.
