@@ -452,6 +452,27 @@ exit
 ! ============================================================
 !
 
+ip access-list extended ACL-PROTEGER-RADIUS
+
+10 deny udp 10.0.0.0 0.0.0.255 host 10.1.0.34 range 1812 1813
+20 deny udp 10.0.1.0 0.0.0.127 host 10.1.0.34 range 1812 1813
+30 deny udp 10.0.1.128 0.0.0.127 host 10.1.0.34 range 1812 1813
+40 deny udp 10.0.2.0 0.0.0.127 host 10.1.0.34 range 1812 1813
+
+50 deny udp 10.1.0.0 0.0.0.31 host 10.1.0.34 range 1812 1813
+60 deny udp 10.1.0.64 0.0.0.15 host 10.1.0.34 range 1812 1813
+
+70 deny udp 10.2.0.0 0.0.0.255 host 10.1.0.34 range 1812 1813
+80 deny udp 10.3.0.0 0.0.0.255 host 10.1.0.34 range 1812 1813
+90 deny udp 10.4.0.0 0.0.0.255 host 10.1.0.34 range 1812 1813
+100 deny udp 10.5.0.0 0.0.0.255 host 10.1.0.34 range 1812 1813
+
+110 permit ip any any
+
+interface Vlan220
+ip access-group ACL-PROTEGER-RADIUS out
+exit
+
 no ip http server
 no ip http secure-server
 
